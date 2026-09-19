@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { notes } from "@/data/content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://quantumbychance.vercel.app";
+  const base = "https://www.quantumbychance.com";
   return [
     "",
     "/learn",
