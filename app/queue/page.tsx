@@ -18,6 +18,7 @@ export default function QueuePage() {
         <div className="queue-intro"><p>This is a deliberate queue, not an infinite bookmarks folder. Every item needs a reason to be here.</p><div><span>4 queued</span><span>~21 hours</span></div></div>
       </header>
       <div className="queue-toolbar"><span>Current season: <strong>error correction & useful advantage</strong></span><small>Last tended Sep 19, 2026</small></div>
+      <p className="draft-note">Starter draft · I’m replacing these prompts with exact links and firsthand notes as I work through them.</p>
       <section className="queue-list">
         {queue.map(({ type, icon: Icon, title, creator, why, time, level, priority }, index) => (
           <article key={title}>
