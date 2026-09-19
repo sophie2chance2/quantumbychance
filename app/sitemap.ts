@@ -6,7 +6,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     "",
     "/learn",
+    "/queue",
     "/notes",
+    "/experiments",
     "/questions",
     "/about",
     ...notes.map((note) => `/notes/${note.slug}`),

@@ -6,9 +6,11 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const links = [
-  ["/learn", "Start learning"],
-  ["/notes", "Field notes"],
-  ["/questions", "Open questions"],
+  ["/learn", "Learning path"],
+  ["/queue", "Next up"],
+  ["/notes", "Thinking"],
+  ["/experiments", "Experiments"],
+  ["/questions", "Questions"],
   ["/about", "About"],
 ];
 

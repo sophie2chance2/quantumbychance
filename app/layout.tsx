@@ -6,11 +6,11 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: { default: "Quantum by Chance", template: "%s · Quantum by Chance" },
-  description: "A learning-in-public field guide to quantum computing — notes, mental models, open questions, and honest confusion.",
+  description: "Sophie Chance's public research notebook on quantum computing — learning queue, evolving ideas, open questions, and experiment notes.",
   metadataBase: new URL("https://quantumbychance.vercel.app"),
   openGraph: {
     title: "Quantum by Chance",
-    description: "Learning quantum computing in public, one confusion at a time.",
+    description: "Learning quantum computing in public through evolving ideas, open questions, and experiments.",
     type: "website",
   },
 };

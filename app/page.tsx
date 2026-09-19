@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Asterisk, CircleHelp, Sparkles } from "lucide-react";
+import { ArrowRight, Asterisk, Beaker, BookMarked, CircleHelp, MessageSquareText, Sparkles } from "lucide-react";
 import NoteCard from "@/components/NoteCard";
 import { notes, pathSteps } from "@/data/content";
 
@@ -8,9 +8,9 @@ export default function Home() {
     <>
       <section className="hero shell">
         <div className="hero-copy">
-          <p className="kicker"><span>●</span> A public learning notebook</p>
+          <p className="kicker"><span>●</span> A public research notebook</p>
           <h1>Quantum computing,<br /><em>one confusion</em> at a time.</h1>
-          <p className="hero-dek">I’m learning quantum computing in public — collecting the mental models that click, the questions that don’t, and the ideas worth sitting with.</p>
+          <p className="hero-dek">I’m learning quantum computing in public — following the signals, testing ideas, and publishing the questions that feel worth carrying forward.</p>
           <div className="button-row">
             <Link className="button button-primary" href="/learn">Start at the beginning <ArrowRight size={17} /></Link>
             <Link className="button button-quiet" href="/notes">Browse the notes</Link>
@@ -31,6 +31,19 @@ export default function Home() {
       <section className="manifesto">
         <Asterisk size={28} />
         <p>This is not a course by an expert. It’s a trail of breadcrumbs from someone learning out loud — with enough structure that you can follow along.</p>
+      </section>
+
+      <section className="section shell desk-section">
+        <div className="section-heading split-heading">
+          <div><p className="kicker">The working desk</p><h2>See the thinking<br />as it happens.</h2></div>
+          <p>Not just what I know, but how I’m choosing what to learn, what I make of it, and where it leads next.</p>
+        </div>
+        <div className="desk-grid">
+          <Link href="/queue" className="desk-card queue-card"><BookMarked size={24} /><span>01 · Input</span><h3>Learning queue</h3><p>What I want to read, watch, and work through next — plus why it made the list.</p><b>See what’s next <ArrowRight size={15} /></b></Link>
+          <Link href="/notes" className="desk-card thinking-card"><MessageSquareText size={24} /><span>02 · Synthesis</span><h3>Thinking in progress</h3><p>My reactions, emerging theses, changed minds, and the connections I’m trying to make.</p><b>Read the margins <ArrowRight size={15} /></b></Link>
+          <Link href="/questions" className="desk-card questions-card"><CircleHelp size={24} /><span>03 · Inquiry</span><h3>Open questions</h3><p>The field’s unresolved edges alongside the things I personally still need to understand.</p><b>Open the ledger <ArrowRight size={15} /></b></Link>
+          <Link href="/experiments" className="desk-card experiments-card"><Beaker size={24} /><span>04 · Evidence</span><h3>Experiment log</h3><p>Interesting demonstrations, papers, and results — with my read on why they matter.</p><b>Inspect the evidence <ArrowRight size={15} /></b></Link>
+        </div>
       </section>
 
       <section className="section shell">
