@@ -6,8 +6,8 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const groups = [
-  { href: "/learn", label: "Learning path", children: [["/queue", "Next up"]] },
-  { href: "/notes", label: "Thinking", children: [["/experiments", "Experiments"], ["/questions", "Open questions"]] },
+  { href: "/learn", label: "Learning path", children: [["/learn", "Learning path overview"], ["/queue", "Next up"]] },
+  { href: "/notes", label: "Thinking", children: [["/notes", "All thinking"], ["/experiments", "Experiments"], ["/questions", "Open questions"]] },
 ];
 
 export default function Header() {
