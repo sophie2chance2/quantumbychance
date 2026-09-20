@@ -14,16 +14,10 @@ export default function NotesPage() {
         <h1>What I think,<br /><em>for now.</em></h1>
         <p>Reactions, working theses, and changed minds from the learning process. Each note keeps its uncertainty visible—and earns the right to evolve.</p>
       </header>
-      <section className="thesis-strip">
-        <span>Current working thesis</span>
-        <p>Quantum computing’s near-term story may be less about replacing classical machines and more about learning which representations nature lets us manipulate efficiently.</p>
-        <small>Confidence: forming · Revised Sep 19</small>
-      </section>
       <div className="thinking-branches">
         <Link href="/experiments"><Beaker size={20} /><span><small>Thinking through evidence</small><strong>Interesting experiments</strong></span><ArrowRight size={17} /></Link>
         <Link href="/questions"><CircleHelp size={20} /><span><small>Thinking through uncertainty</small><strong>Open questions</strong></span><ArrowRight size={17} /></Link>
       </div>
-      <div className="filter-row" aria-label="Note filters"><button className="selected">All thinking</button><button>Working theses</button><button>Reactions</button><button>Changed my mind</button></div>
       <div className="notes-grid notes-all">{notes.map((note) => <NoteCard note={note} key={note.slug} />)}</div>
     </div>
   );

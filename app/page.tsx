@@ -83,12 +83,12 @@ export default function Home() {
         <div className="question-card">
           <div className="question-icon"><CircleHelp size={24} /></div>
           <div className="question-copy">
-            <p className="kicker">Question I’m carrying this week</p>
-            <h2>If quantum states can’t be copied, how does quantum error correction work?</h2>
-            <p>My current understanding: we never copy the state itself. We spread its information across entangled qubits, then measure the shape of the error — not the protected information. I’m still working through what that means physically.</p>
+            <p className="kicker">Question I’m carrying from Day 1</p>
+            <h2>What does “observation” physically mean in quantum mechanics?</h2>
+            <p>The double-slit experiment makes it tempting to say particles behave differently when they are watched. I want to understand what counts as measurement, why human attention is irrelevant, and what it means for path information to be available.</p>
             <Link href="/questions">Follow the thread <ArrowRight size={16} /></Link>
           </div>
-          <div className="scribble" aria-hidden="true"><span>error?</span><i>→</i><strong>syndrome</strong><i>→</i><span>repair</span></div>
+          <div className="scribble" aria-hidden="true"><span>interaction?</span><i>→</i><strong>information</strong><i>→</i><span>measurement?</span></div>
         </div>
       </section>
 
