@@ -1,17 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-const links = [
-  ["/learn", "Learning path"],
-  ["/queue", "Next up"],
-  ["/notes", "Thinking"],
-  ["/experiments", "Experiments"],
-  ["/questions", "Questions"],
-  ["/about", "About"],
+const groups = [
+  { href: "/learn", label: "Learning path", children: [["/queue", "Next up"]] },
+  { href: "/notes", label: "Thinking", children: [["/experiments", "Experiments"], ["/questions", "Open questions"]] },
 ];
 
 export default function Header() {
@@ -28,9 +24,15 @@ export default function Header() {
         {open ? <X size={20} /> : <Menu size={20} />}
       </button>
       <nav className={open ? "nav-open" : ""}>
-        {links.map(([href, label]) => (
-          <Link key={href} href={href} className={pathname === href ? "active" : ""} onClick={() => setOpen(false)}>{label}</Link>
+        {groups.map((group) => (
+          <div className="nav-group" key={group.href}>
+            <Link href={group.href} className={pathname === group.href || group.children.some(([href]) => pathname === href) ? "active" : ""} onClick={() => setOpen(false)}>{group.label} <ChevronDown size={12} /></Link>
+            <div className="nav-submenu">
+              {group.children.map(([href, label]) => <Link key={href} href={href} className={pathname === href ? "active-child" : ""} onClick={() => setOpen(false)}>{label}</Link>)}
+            </div>
+          </div>
         ))}
+        <Link href="/about" className={pathname === "/about" ? "active" : ""} onClick={() => setOpen(false)}>About</Link>
       </nav>
     </header>
   );

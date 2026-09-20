@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, BookOpen, Check, FlaskConical, Sigma } from "lucide-react";
+import { ArrowRight, BookMarked, BookOpen, Check, FlaskConical, Sigma } from "lucide-react";
 import { pathSteps } from "@/data/content";
 
 export const metadata: Metadata = { title: "Start learning" };
@@ -18,6 +18,11 @@ export default function LearnPage() {
         <div><FlaskConical size={20} /><span><strong>Intuition, then testing</strong>Mental models are tools, not truth.</span></div>
         <div><Sigma size={20} /><span><strong>Math when useful</strong>Enough rigor to spot the hand-waving.</span></div>
       </div>
+      <Link href="/queue" className="nested-route-card">
+        <BookMarked size={22} />
+        <span><small>Within the learning path</small><strong>See what I’m reading and watching next</strong><p>A deliberately small queue, with a reason for every item.</p></span>
+        <ArrowRight size={19} />
+      </Link>
       <section className="learning-path">
         {pathSteps.map((step, index) => (
           <article className="learning-step" key={step.number}>
