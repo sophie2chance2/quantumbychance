@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
-import { ArrowUpRight, BookOpen, Clock3, Headphones, Play, Star } from "lucide-react";
+import { ArrowUpRight, BookOpen, Layers3, Play, Star } from "lucide-react";
 
 export const metadata: Metadata = { title: "Learning queue" };
 
 const queue = [
-  { type: "Read", icon: BookOpen, title: "Quantum Computing Since Democritus", creator: "Scott Aaronson", why: "For a computer-science-first route through what makes quantum information different — and a useful skepticism filter.", time: "12 hrs", level: "Deep dive", priority: true },
-  { type: "Watch", icon: Play, title: "Quantum Country", creator: "Andy Matuschak & Michael Nielsen", why: "To test whether spaced repetition helps quantum concepts become usable, not merely familiar.", time: "3 hrs", level: "Interactive", priority: true },
-  { type: "Read", icon: BookOpen, title: "Quantum Computing: Progress and Prospects", creator: "National Academies", why: "A baseline for separating durable technical constraints from this year’s headlines.", time: "5 hrs", level: "Report", priority: false },
-  { type: "Listen", icon: Headphones, title: "The Joy of Why: Quantum Error Correction", creator: "Quanta Magazine", why: "I want another explanation of how information survives without violating the no-cloning theorem.", time: "55 min", level: "Conversation", priority: false },
+  { type: "Read", icon: BookOpen, title: "Quantum: A Guide for the Perplexed", creator: "Jim Al-Khalili", why: "Probably my favorite true beginner starting point. It explains superposition, uncertainty, entanglement, and more without assuming much physics.", stage: "01 · Start here", level: "True beginner", priority: true },
+  { type: "Read", icon: BookOpen, title: "In Search of Schrödinger’s Cat", creator: "John Gribbin", why: "Very readable, with the history of quantum mechanics alongside the concepts. Great for understanding why quantum theory developed.", stage: "02 · Build context", level: "History + ideas", priority: false },
+  { type: "Read", icon: BookOpen, title: "Something Deeply Hidden", creator: "Sean Carroll", why: "Excellent once the basic vocabulary is familiar. It focuses on what quantum mechanics actually means, including the many-worlds interpretation.", stage: "03 · Interpret", level: "Meaning", priority: false },
+  { type: "Read", icon: BookOpen, title: "QED: The Strange Theory of Light and Matter", creator: "Richard Feynman", why: "Short, surprisingly approachable, and drawn from lectures for non-specialists. A first taste of how physicists reason about quantum behavior.", stage: "04 · Reason", level: "Lectures", priority: false },
+  { type: "Read", icon: BookOpen, title: "The Theoretical Minimum: Quantum Mechanics", creator: "Leonard Susskind & Art Friedman", why: "Where I’d go when it’s time to actually learn quantum mechanics rather than just learn about it. There is real math, designed for motivated non-physicists.", stage: "05 · Do the math", level: "Mathematical", priority: false },
+  { type: "Watch", icon: Play, title: "Double-Slit Experiment & Wave-Particle Duality Explained in Simple Words", creator: "Science ABC · YouTube", why: "A visual first look at the double-slit experiment and the strange shift between particle-like and wave-like behavior.", stage: "Watch first", level: "Video", priority: true, url: "https://www.youtube.com/watch?v=Cc6FJXMfhew" },
 ];
 
 export default function QueuePage() {
@@ -15,12 +17,11 @@ export default function QueuePage() {
     <div className="shell inner-page">
       <header className="page-hero queue-hero">
         <div><p className="kicker">The input side</p><h1>What I’m learning<br /><em>next.</em></h1></div>
-        <div className="queue-intro"><p>This is a deliberate queue, not an infinite bookmarks folder. Every item needs a reason to be here.</p><div><span>4 queued</span><span>~21 hours</span></div></div>
+        <div className="queue-intro"><p>This is a deliberate progression, not an infinite bookmarks folder. Every item has a role in moving from intuition to real mechanics.</p><div><span>5 books</span><span>1 video</span></div></div>
       </header>
-      <div className="queue-toolbar"><span>Current season: <strong>error correction & useful advantage</strong></span><small>Last tended Sep 19, 2026</small></div>
-      <p className="draft-note">Starter draft · I’m replacing these prompts with exact links and firsthand notes as I work through them.</p>
+      <div className="queue-toolbar"><span>Reading arc: <strong>foundations → meaning → mathematics</strong></span><small>Curated by Sophie</small></div>
       <section className="queue-list">
-        {queue.map(({ type, icon: Icon, title, creator, why, time, level, priority }, index) => (
+        {queue.map(({ type, icon: Icon, title, creator, why, stage, level, priority, url }, index) => (
           <article key={title}>
             <div className="queue-index">{String(index + 1).padStart(2, "0")}</div>
             <div className="queue-type"><Icon size={17} /><span>{type}</span></div>
@@ -29,7 +30,7 @@ export default function QueuePage() {
               <p className="creator">{creator}</p>
               <p><strong>Why it’s here</strong>{why}</p>
             </div>
-            <div className="queue-facts"><span><Clock3 size={14} /> {time}</span><span>{level}</span><button aria-label={`Open ${title}`}><ArrowUpRight size={18} /></button></div>
+            <div className="queue-facts"><span><Layers3 size={14} /> {stage}</span><span>{level}</span>{url ? <a href={url} target="_blank" rel="noreferrer" aria-label={`Open ${title}`}><ArrowUpRight size={18} /></a> : <i />}</div>
           </article>
         ))}
       </section>
