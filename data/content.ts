@@ -11,6 +11,16 @@ export type Note = {
 
 export const notes: Note[] = [
   {
+    slug: "day-one-what-are-particles-doing",
+    eyebrow: "Learning log 01",
+    title: "Day 1: What are particles doing when we’re not looking?",
+    description: "A beginner’s first encounter with the double-slit experiment, the temptation to anthropomorphize particles, and the feeling of entering a much bigger world.",
+    date: "Sep 19, 2026",
+    readTime: "4 min",
+    color: "coral",
+    status: "new",
+  },
+  {
     slug: "qubits-are-not-spinning-coins",
     eyebrow: "Mental model 01",
     title: "A qubit is not a coin spinning in the air",
